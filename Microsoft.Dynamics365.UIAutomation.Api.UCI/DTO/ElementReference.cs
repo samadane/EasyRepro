@@ -81,6 +81,7 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
             { "Nav_SearchLabel"       , "id(\"findHintText\")"},
             { "Nav_Search"       , "id(\"search\")"},
             { "Nav_StartSearch"       , "id(\"findCriteriaButton\")"},
+            { "Nav_GoBack",         "//button[@title='Go back']" },
 
             { "Nav_Tab_Summary",      "//li[contains(@data-id,\"tablist-SUMMARY_TAB\")]" },
             { "Nav_Tab_Details",      "//li[contains(@data-id,\"tablist-DETAILS_TAB\")]" },
@@ -134,8 +135,8 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
             { "Timeline_Note_Title",               "id(\"create_note_medium_title\")" },
             { "Timeline_Note_Text",                "//iframe[contains(@class, \"fullPageContentEditorFrame\")]" },
             { "Timeline_Note_TextBody",            "//body[contains(@class, 'cke_wysiwyg_frame')]" },
-            { "Timeline_Note_Add",                 "id(\"create_note_add_btn\")" },
-            { "Timeline_Note_Cancel",              "id(\"create_note_cancel_btn\")" },
+            { "Timeline_Note_Add",                 ".//button[text()='Add note' and contains(@data-id, 'notescontrol')]" },
+            { "Timeline_Note_Cancel",              ".//button[text()='Cancel' and contains(@data-id, 'notescontrol')]" },
 
             //Global Search
             { "Search_Filter"       , "id(\"filterCombo\")"},
@@ -184,7 +185,7 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
             { "Login_SignIn", "id(\"cred_sign_in_button\")"},
             { "Login_CrmMainPage", "//*[contains(@id,'crmTopBar') or contains(@data-id,'topBar')]"},
             { "Login_CrmUCIMainPage", "//*[contains(@data-id,'topBar')]"},
-            { "Login_StaySignedIn", "//input[@id=\"idSIButton9\"]"},
+            { "Login_StaySignedIn", "//div[@data-viewid and contains(@data-bind, 'kmsi-view')]//input[@id='idSIButton9']"},
             { "Login_OneTimeCode", "//input[@name='otc']"},
 
 
@@ -316,6 +317,8 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
             { "Process_Category", "WorkflowCategory"},
             { "Process_Entity", "PrimaryEntity"},
 
+            //Login
+            { "Login_UseAnotherAccount", "otherTile" }
     };
 
         public static Dictionary<string, string> CssClass = new Dictionary<string, string>()
@@ -533,6 +536,7 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
             public static string SummaryTab = "Nav_Tab_Summary";
             public static string DetailsTab = "Nav_Tab_Details";
             public static string PerfTab = "Nav_Tab_Perf";
+            public static string GoBack = "Nav_GoBack";
         }
         public static class Grid
         {
@@ -733,6 +737,7 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
             public static string CrmUCIMainPage = "Login_CrmUCIMainPage";
             public static string StaySignedIn = "Login_StaySignedIn";
             public static string OneTimeCode = "Login_OneTimeCode";
+            public static string UseAnotherAccount = "Login_UseAnotherAccount";
         }
         public static class Report
         {
